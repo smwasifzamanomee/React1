@@ -1,10 +1,10 @@
 import React from 'react'
-import Service from './Service'
+import ThingsYouNeed from './ThingsYouNeed'
 
 const Main = () => {
   return (
     <div>
-        <Service />
+      <ThingsYouNeed />      
     </div>
   )
 }

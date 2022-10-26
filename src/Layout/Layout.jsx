@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet, useParams } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Footer from '../Shared/Footer'
 import Navbar from '../Shared/Navbar'
 
