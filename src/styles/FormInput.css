@@ -1,0 +1,28 @@
+.input_box {
+    position: relative;
+  }
+  
+  .content_name {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.5s ease;
+  }
+  
+  .message {
+    margin-top: 10px;
+  }
+  
+  .input_box .input_field:focus ~ .label_name .content_name,
+  .input_box .input_field:valid ~ .label_name .content_name {
+    transform: translateY(-110%);
+    color: salmon;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .input_box .message:focus + .label_name .content_name,
+  .input_box .message:valid + .label_name .content_name {
+    transform: translateY(-540%);
+  }
+  
