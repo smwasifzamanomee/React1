@@ -3,14 +3,10 @@ import "../../styles/FormInput.css";
 
 const FormInput = ({
   label,
-  placeholder,
   value,
   setValue,
-  onBlur,
-  onFocus,
   type,
   className,
-  Icon,
 }) => {
 
   return (

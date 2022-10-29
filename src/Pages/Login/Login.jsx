@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FcGoogle} from 'react-icons/fc'
 import { FaFacebookF } from 'react-icons/fa'
@@ -7,6 +7,30 @@ import Button from '../../Components/Ui/Button'
 import FormInput from '../../Components/Form/FormInput'
 
 const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const URL = `http://127.0.0.1:8000/api/token/`;
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const userCredential = {
+      username,
+      password
+    }
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(userCredential)
+    });
+    const data = await response.json();
+    console.log(data);
+
+
+  }
+
   return (
     <Container>
     <div className="md:w-[1000px] mx-auto min-h-max shadow-lg border-t border-primary md:flex justify-between gap-8 items-center">
@@ -36,11 +60,11 @@ const Login = () => {
 
        </div>
 
-       <form 
+       <form onSubmit={handleLogin}
        className="flex-1 px-8 py-28">
          <h3 className="text-3xl font-bold mb-6 text-center">Login</h3>
-         <FormInput  setValue='setEmail'type="email" label="Email"/>
-         <FormInput  setValue='setPassword' type="password" label="Password"/>
+         <FormInput  setValue={setUsername} type="text" label="Username" value={username}/>
+         <FormInput  setValue={setPassword}type="password" label="Password" value={password}/>
          <Button type='submit' className={"w-[400px] bg-bg_info text-light"}>Sign in</Button>
        </form>
 
